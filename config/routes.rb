@@ -1,5 +1,11 @@
 Blog::Application.routes.draw do
   
+  get "users/index"
+
+  get "posts/index"
+
+  get "comments/index"
+
   root                to:  'static_pages#home'
   match '/landing',   to:  'static_pages#landing'
   match '/about',     to:  'static_pages#about'
