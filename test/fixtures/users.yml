@@ -4,20 +4,16 @@ one:
   name: MyString
   email: MyString
   password: MyString
-  website: MyString
-  twitter: MyString
-  facebook: MyString
-  github: MyString
-  linkedin: MyString
+  image_url: MyString
   admin: false
+  subscribe: false
+  anonymous: false
 
 two:
   name: MyString
   email: MyString
   password: MyString
-  website: MyString
-  twitter: MyString
-  facebook: MyString
-  github: MyString
-  linkedin: MyString
+  image_url: MyString
   admin: false
+  subscribe: false
+  anonymous: false
