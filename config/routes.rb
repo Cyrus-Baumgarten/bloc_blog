@@ -1,9 +1,13 @@
 Blog::Application.routes.draw do
-  get "static_pages/landing"
+  
+  root                to:  'static_pages#home'
+  match '/landing',   to:  'static_pages#landing'
+  match '/about',     to:  'static_pages#about'
 
-  get "static_pages/home"
-
-  get "static_pages/about"
+  resources :authors
+  resources :posts
+  resources :comments
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
