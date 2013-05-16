@@ -11,3 +11,197 @@
  *= require_self
  *= require_tree .
  */
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<style>
+
+*{
+  border: 1px solid white;
+  font-family: sans-serif;
+}
+
+html{
+  border:none;
+}
+
+section{
+  border:none;
+}
+
+span{
+  border:none;
+}
+
+p{
+  border:none;
+}
+
+article{
+  border:none;
+}
+
+img{
+  border:none;
+}
+
+body{
+  width: 990px;
+}
+
+div{
+  border:none;
+}
+
+header{
+  border:none;
+}
+
+footer{
+  border:none;
+}
+
+ul{
+  border:none;
+}
+
+li{
+  border:none;
+}
+
+#top-bar{
+  border: none;
+  float:top;
+  display:inline-block;
+  width:992px;
+  position:fixed;
+  z-index: +1;
+}
+
+#title{
+  border: none;
+  margin-left: 50px;
+  margin-top: 40px;
+  position:absolute;
+  display: inline-block;
+}
+
+#tagline{
+  border: none;
+  positon:absolute;
+  margin-left: 280px;
+  margin-top: 50px;
+  display: inline-block;
+}
+
+#top-pic{
+  width:980px;
+  height:120px;
+  background-color:#A3A3A3;
+  border: 5px solid grey;
+  position:relative;
+  margin-top:-90px;
+  z-index: -1;
+}
+
+#nav1{
+  position: absolute;
+  margin-left: 700px;
+  margin-top: -90px;
+  border: 5px solid grey;
+}
+
+#nav2{
+  position: absolute;
+  margin-left: 910px;
+  margin-top: -90px;
+  border: 5px solid grey;
+}
+
+#nav3{
+  position: absolute;
+  margin-left: 770px;
+  margin-top: -90px;
+  border: 5px solid grey;
+}
+
+#nav4{
+  position: absolute;
+  margin-left: 840px;
+  margin-top: -90px;
+  border: 5px solid grey;
+}
+
+#right-bar{
+  border-right:5px solid grey;
+  border-bottom:5px solid grey;
+  padding-left:5px;
+  padding-top:90px;
+  padding-right:25px;
+  overflow-y: scroll;
+  position: fixed;
+  height: 320px;
+  width: 255px;
+  margin-left: 700px;
+  margin-top: 140px;
+}
+
+#side-title{
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+#side-content{
+  color:grey;
+}
+
+#left-bar{
+  float:left;
+  width: 665px;
+  margin-top: 140px;
+  border:none;
+  margin-bottom:20px;
+  border-left: 5px solid grey;
+  border-right: 5px solid grey;
+}
+
+.center{
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  border:none;
+}
+
+#artpic{
+  display: block;
+}
+
+#floater{
+  z-index: +1;
+  background-color: #A3A3A3;
+  border:5px solid grey;
+  width:240px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 150px;
+  position:fixed;
+  margin-left: 695px
+}
+
+#comment-button{
+  width: 200px;
+  background-color:#A3A3A3;
+  border: 5px solid grey;
+}
+
+#bottom-bar{
+  float:bottom;
+  clear:both;
+  position:relative;
+  width: 625px;
+  padding:20px;
+  border: 5px solid grey;
+  background-color: #A3A3A3;
+}
+
+</style>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
