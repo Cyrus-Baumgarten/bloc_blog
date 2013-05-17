@@ -1,0 +1,25 @@
+<p>NEW USER
+
+
+<br>
+<%= form_for @user do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	
+	<%= f.label :password %>
+	<%= f.text_field :password %>
+	
+	<%= f.label :image_url, "Avatar Link" %>
+	<%= f.text_field :image_url %>
+	
+	
+	
+	
+
+	<%= f.submit "Sign Up"%>
+
+<% end %>
