@@ -1,7 +1,19 @@
+<p>POST ID: <%= @post.id %>
+
+<p>POST TITLE: <%= @post.title %>
+
+<p>POST CONTENT: <%= @post.body %>
+
+<p>LATEST COMMENT: <%= @comments.content %>
+
+
+<p>SUBMIT COMMENT
 <br>
-POST ID: <%= @post.id %>
-<br>
-POST TITLE: <%= @post.title %>
-<br>
-POST CONTENT: <%= @post.body %>
-<br>
+<%= form_for @comment do |f| %>
+
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+
+	<%= f.submit "Submit Comment"%>
+
+<% end %>
