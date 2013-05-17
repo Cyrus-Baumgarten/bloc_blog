@@ -16,9 +16,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.create(params[:post])
-    x = @post.id
-    y = Post.find_by_id(x)
-    redirect_to y
+    redirect_to @post
   end
   
 end
