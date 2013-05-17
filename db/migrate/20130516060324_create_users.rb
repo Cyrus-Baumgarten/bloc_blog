@@ -4,8 +4,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password
+      t.string :password_confirm
       t.string :image_url
-      t.boolean :admin, default: false
+      t.string :role, default: "user"
       t.boolean :subscribe, default: false
       t.boolean :anonymous, default: true
 

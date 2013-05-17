@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :author_id, :content, :post_id, :user_id
+  attr_accessible :content, :post_id, :user_id
   
   validates :content, presence: true, length: { maximum: 160 }
   

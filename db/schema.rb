@@ -13,24 +13,9 @@
 
 ActiveRecord::Schema.define(:version => 20130516060603) do
 
-  create_table "authors", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password"
-    t.string   "website"
-    t.string   "twitter"
-    t.string   "facebook"
-    t.string   "github"
-    t.string   "linkedin"
-    t.boolean  "admin",      :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
-    t.integer  "author_id"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -49,12 +34,13 @@ ActiveRecord::Schema.define(:version => 20130516060603) do
     t.string   "name"
     t.string   "email"
     t.string   "password"
+    t.string   "password_confirm"
     t.string   "image_url"
-    t.boolean  "admin",      :default => false
-    t.boolean  "subscribe",  :default => false
-    t.boolean  "anonymous",  :default => true
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.string   "role",             :default => "user"
+    t.boolean  "subscribe",        :default => false
+    t.boolean  "anonymous",        :default => true
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
 end
