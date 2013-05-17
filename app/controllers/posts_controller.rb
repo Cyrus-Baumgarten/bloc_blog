@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by_id(params[:id])
-    @comments = Comment.last
+    @comments = Comment.all
     @comment = Comment.new
   end
   

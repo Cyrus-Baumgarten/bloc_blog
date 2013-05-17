@@ -4,10 +4,17 @@
 
 <p>POST CONTENT: <%= @post.body %>
 
-<p>LATEST COMMENT: <%= @comments.content %>
 
+<p>ALL COMMENTS:
+
+<% @comments.each do |comment| %>
+	
+<p><%= comment.content %></p>
+	
+<% end %>
 
 <p>SUBMIT COMMENT
+	
 <br>
 <%= form_for @comment do |f| %>
 
