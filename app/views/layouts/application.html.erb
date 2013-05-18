@@ -20,5 +20,8 @@
 			stories
 		</div>	
 	</div>
+	<% unless session[:current_user_id] == nil %>
+	<p>YOU ARE CURRENTLY SIGNED IN AS USER: <%= User.find_by_id(session[:current_user_id]).name %>
+		<% end %>
 </body>
 </html>
