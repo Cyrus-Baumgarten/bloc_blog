@@ -1,9 +1,5 @@
 <ul>
-<% @posts.each do |post| %>
-	
-<li><%= link_to post.id, post_path(post) %></li>
-	
-<% end %>
+<%= render @posts %>
 </ul>
 
 <h1>Posts#index</h1>
