@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application.css.scss", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -20,6 +20,14 @@
 		<div class="span1" ><%= link_to 'Users', 			users_path %></div>
 	<div>
 	
-	<%= yield %>	
+	<div class="row">
+		<div class="span9">
+			<%= yield %>
+		</div>
+		
+		<div class="span3">
+			stories
+		</div>	
+	</div>
 </body>
 </html>
