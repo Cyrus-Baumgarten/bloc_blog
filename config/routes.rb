@@ -1,9 +1,11 @@
 Blog::Application.routes.draw do
 
+
   root                to:  'static_pages#home'
   match '/landing',   to:  'static_pages#landing'
   match '/about',     to:  'static_pages#about'
-
+  
+  resources :sessions
   resources :authors
   resources :posts
   resources :comments

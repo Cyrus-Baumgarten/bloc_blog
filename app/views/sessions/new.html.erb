@@ -1,0 +1,15 @@
+<p>SIGN IN
+	
+	<%=	form_for(:session, url: sessions_path) do |f| %>
+		
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	
+	<%= f.submit "Sign in" %>
+		
+	<% end %>
+	
+	
+
+<h1>Session#new</h1>
+<p>Find me in app/views/session/new.html.erb</p>
