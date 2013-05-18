@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = Comment.create(params[:comment])
+    @comment = @post.comments.create(params[:comment])
     redirect_to :back
   end
 end
