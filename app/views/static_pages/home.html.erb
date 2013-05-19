@@ -1,7 +1,7 @@
 <p>LATEST POST
 
 
-<p><%= @post.title %>
+<p><%= @post.title if @post %>
 
 
-<p><%= @post.body %>
+<p><%= @post.body if @post %>

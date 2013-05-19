@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 <p><%= comment.content %><br>
 POSTED BY <%= link_to comment.user %>
+=======
+<p><li><%= comment.content %><br>
+	POSTED BY <%= link_to comment.user.name, user_path %> - <%= link_to "edit", edit_comment_path(comment) %> - <%= link_to "delete", comment, method: :delete %></li>
+>>>>>>> new-master

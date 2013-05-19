@@ -1,0 +1,11 @@
+<p>EDIT COMMENT
+	
+<br>
+<%= form_for @comment do |f| %>
+
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+
+	<%= f.submit "Submit Comment"%>
+
+<% end %>
