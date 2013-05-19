@@ -1,1 +1,2 @@
-<p><%= comment.content %> - <%= link_to "edit", edit_comment_path(@post, comment) %> - <%= link_to "delete", comment, method: :delete %>
+<p><%= comment.content %><br>
++POSTED BY <%= link_to comment.user %> - <%= link_to "edit", edit_comment_path(@post, comment) %> - <%= link_to "delete", comment, method: :delete %>
