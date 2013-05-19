@@ -1,1 +1,1 @@
-<p><%= comment.content %></p>
+<p><%= comment.content %> - <%= link_to "edit", edit_comment_path(@post, comment) %> - <%= link_to "delete", comment, method: :delete %>
