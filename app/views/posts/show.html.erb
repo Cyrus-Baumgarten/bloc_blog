@@ -1,24 +1,18 @@
-<p>POST ID: <%= @post.id %>
+<p>POST ID: <%= @post.id %> - <%= link_to "edit", edit_post_path(@post) %> - <%= link_to "delete", @post, method: :delete %>
+
 
 <p>POST TITLE: <%= @post.title %>
 
 <p>POST CONTENT: <%= @post.body %><br>
-	
-<%= link_to "edit", edit_post_path(@post) %> - <%= link_to "delete", @post, method: :delete %>
-
 
 <p>ALL COMMENTS:
 
+	<ul>
 	<%= render @comments %>
-
-<p>SUBMIT COMMENT
+	</ul>
 	
-<br>
-<%= form_for @comment do |f| %>
-
-	<%= f.label :content %>
+<p><%= form_for @comment do |f| %> 
+	<%= f.label :content, "NEW COMMENT" %>
 	<%= f.text_field :content %>
-
 	<%= f.submit "Submit Comment"%>
-
 <% end %>
