@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   
   def create
     @comment = @post.comments.create(params[:comment])    
-    @comment[:user_id] = @user.id
+    @comment.user = @user
     @comment.save
     redirect_to :back
   end

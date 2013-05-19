@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
     session[:post] = params[:id]
-    @comments = @post.comments
+    @comments = @post.comments.all
     @comment = @post.comments.create
   end
   
