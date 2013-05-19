@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   
   before_filter :set_current_user
-  before_filter :set_current_post
   
   def index
     @posts = Post.all
@@ -21,6 +20,21 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(params[:post])
     redirect_to @post
+  end
+  
+  def edit
+    @post = Post.find_by_id(params[:id])
+  end
+  
+  def update
+    @post = Post.find_by_id(params[:id])
+    @post.update_attributes(params[:post])
+    redirect_to @post
+  end
+  
+  def destroy
+    Post.find_by_id(params[:id]).destroy
+    redirect_to posts_path
   end
   
 end
