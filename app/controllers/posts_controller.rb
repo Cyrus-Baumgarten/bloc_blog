@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   
   before_filter :set_current_user
+  before_filter :set_current_post
   
   def index
     @posts = Post.all
@@ -8,8 +9,9 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by_id(params[:id])
-    @comments = Comment.all
-    @comment = Comment.new
+    session[:post] = params[:id]
+    @comments = @post.comments
+    @comment = @post.comments.create
   end
   
   def new

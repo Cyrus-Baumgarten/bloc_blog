@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
       flash[:instance] = "YOU ARE CURRENTLY INTANTISED AS: #{@user.name}"
     end
   end
+  
+  def set_current_post
+    unless session[:post].nil?
+      @post = Post.find(session[:post])    
+    end
+  end
+  
 end
