@@ -1,18 +1,18 @@
 Blog::Application.routes.draw do
 
-
   devise_for :users
-
-  root                to:  'static_pages#home'
+  
+  root :to => 'static_pages#home'
   match '/landing',   to:  'static_pages#landing'
   match '/about',     to:  'static_pages#about'
   
-  resources :sessions
   resources :authors
   resources :posts
   resources :comments
   resources :users
-
+  
+  match 'sessions/user', to: 'static_pages#home'
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
