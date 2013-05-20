@@ -1,5 +1,12 @@
 <p><li><%= comment.content %><br>
-	POSTED BY <%= link_to comment.user.email, user_path %>
+	POSTED BY 
+	<% if comment.user.anonymous or comment.user.name.empty? %>
+	Anonymous
+	<% else %>
+	<%= link_to comment.user.email, user_path %>
+	<% end %>
+	
+	
 	<% unless current_user.nil? %>
 		<% if current_user == comment.user or current_user.admin? %>
 		- <%= link_to "edit", edit_comment_path(comment) %> - <%= link_to "delete", comment, method: :delete %>
