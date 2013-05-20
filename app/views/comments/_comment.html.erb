@@ -11,9 +11,11 @@
 		<% if current_user == comment.user or current_user.admin? %>
 		- <%= link_to "edit", edit_comment_path(comment) %> - <%= link_to "delete", comment, method: :delete %>
 			<% end %>
+			
+			<% if current_user.admin? %>
+				- <%= link_to "Admin User Page", user_path(comment.user) %>
+			<% end %>
 	<% end %>
 	
-	<% if current_user.admin? %>
-		<%= link_to "Admin User Page", user_path(comment.user) %>
-	<% end %>
+	
 </li>

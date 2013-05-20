@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       flash[:authorized] = "You are not authorized to do that"
     else
       User.find_by_id(params[:id]).destroy
-      redirect_to :back
+      redirect_to root_path
     end
   end
 end
