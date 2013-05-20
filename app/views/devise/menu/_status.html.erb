@@ -1,0 +1,5 @@
+<% unless current_user.nil? %>
+Signed In As: <%= current_user.email %>
+<% else %>
+Not Signed In
+<% end %>
