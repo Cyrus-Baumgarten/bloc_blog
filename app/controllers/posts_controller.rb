@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   
-  before_filter :set_current_user
   
   def index
     @posts = Post.all
@@ -14,11 +13,11 @@ class PostsController < ApplicationController
   end
   
   def new
-    @post = Post.new
+    @post = current_user.posts.create
   end
   
   def create
-    @post = Post.create(params[:post])
+    @post = current_user.posts.create(params[:post])
     redirect_to @post
   end
   

@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_filter :set_current_user
   before_filter :set_current_post
   
   def index
@@ -7,7 +6,7 @@ class CommentsController < ApplicationController
   
   def create
     @comment = @post.comments.create(params[:comment])    
-    @comment.user = @user
+    @comment.user = current_user
     @comment.save
     redirect_to :back
   end
