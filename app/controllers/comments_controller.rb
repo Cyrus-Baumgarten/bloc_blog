@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment = Comment.find_by_id(params[:id])
-    unless current_user == @comment.user
+    unless current_user == @comment.user or current_user.admin?
       redirect_to :back
       flash[:authorized] = "You are not authorized to do that"
     else

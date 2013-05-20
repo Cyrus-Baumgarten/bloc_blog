@@ -8,4 +8,8 @@
  <%= render 'devise/menu/login_items' %> -
  <%= render 'devise/menu/status' %>
  
-<p><%= link_to 'NEW POST', 	new_post_path %> -
+<% unless current_user.nil? %>
+	<% if current_user.admin? %>
+		 <p>ADMIN: <%= link_to 'NEW POST', 	new_post_path %>
+		<% end %>
+<% end %>
