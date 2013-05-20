@@ -1,6 +1,0 @@
-<li><%= link_to user.email, user_path(user) %> 
-	<% unless current_user.nil? %>
-		<% if current_user.admin? %>
-			 - <%= link_to "Admin Delete", user, method: :delete %>
-			<% end %>
-	<% end %>
