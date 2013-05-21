@@ -1,3 +1,35 @@
-<p><%= flash[:welcome] %>
+<% if @user.anonymous? or @user.name.empty? %>
 
-<p>USER: <%= @user.name %> - <%= link_to "edit", edit_user_path(@user) %> - <%= link_to "delete", @user, method: :delete %>
+<p>This user has chosen to keep his profile private
+
+<% else %>
+
+<p>USERNAME: <%= @user.name %>
+	
+<p>IMAGE_URL: <%= @user.image_url %>
+	
+<% end %>
+
+
+
+<% if @user == current_user or current_user.admin? %>
+
+<p>USERNAME: <%= @user.name %>
+	
+<p>IMAGE_URL: <%= @user.image_url %>
+
+<p>EMAIL: <%= @user.email %>
+	
+<p>ANONYMOUS? <%= @user.anonymous.to_s %>
+	
+<p>SUBSCRIBED? <%= @user.subscribe.to_s %>
+	
+<% end %>
+
+<p>
+	
+<% if current_user.admin? %>
+
+<%= link_to "Admin Delete", @user, method: :delete %>
+
+<% end %>

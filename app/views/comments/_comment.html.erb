@@ -3,5 +3,28 @@
 POSTED BY <%= link_to comment.user %>
 =======
 <p><li><%= comment.content %><br>
+<<<<<<< HEAD
 	POSTED BY <%= link_to comment.user.name, user_path %> - <%= link_to "edit", edit_comment_path(comment) %> - <%= link_to "delete", comment, method: :delete %></li>
+>>>>>>> new-master
+=======
+	POSTED BY 
+	<% if comment.user.anonymous or comment.user.name.empty? %>
+	Anonymous
+	<% else %>
+	<%= link_to comment.user.name, user_path %>
+	<% end %>
+	
+	
+	<% unless current_user.nil? %>
+		<% if current_user == comment.user or current_user.admin? %>
+		- <%= link_to "edit", edit_comment_path(comment) %> - <%= link_to "delete", comment, method: :delete %>
+			<% end %>
+			
+			<% if current_user.admin? %>
+				- <%= link_to "Admin User Page", user_path(comment.user) %>
+			<% end %>
+	<% end %>
+	
+	
+</li>
 >>>>>>> new-master

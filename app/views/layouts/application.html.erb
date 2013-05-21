@@ -10,12 +10,13 @@
 
 <body>
 	
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<p class="alert"><%= flash[:authorized] %></p>
+	
 	<%= render 'navbar' %>
 
 	<%= yield %>
 		
-	<P><%= flash[:signed_in] %>
-	<P><%= flash[:error] %>
-			
 </body>
 </html>

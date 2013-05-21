@@ -1,35 +1,35 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
-  
-  def new
-    @user = User.new
-  end
-  
-  def create
-    @user = User.create(params[:user])
-    flash[:welcome] = "Welcome new user"
-    redirect_to @user
-  end
-  
+    
   def show
     @user = User.find_by_id(params[:id])
   end
   
   def edit
     @user = User.find_by_id(params[:id])
+    unless current_user = @user
+      redirect_to :back
+      flash[:authorized] = "You are not authorized to do that"
+    end
   end
   
   def update
     @user = User.find_by_id(params[:id])
-    @user.update_attributes(params[:user])
-    redirect_to @user
+    unless current_user = @user
+      redirect_to :back
+      flash[:authorized] = "You are not authorized to do that"
+    else
+      @user.update_attributes(params[:user])
+      redirect_to @user
+    end
   end
   
   def destroy
-    User.find_by_id(params[:id]).destroy
-    redirect_to users_path
+    unless current_user.admin?
+      redirect_to :back
+      flash[:authorized] = "You are not authorized to do that"
+    else
+      User.find_by_id(params[:id]).destroy
+      redirect_to root_path
+    end
   end
-  
 end
