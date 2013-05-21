@@ -2,12 +2,18 @@
  <%= link_to 'About', 			about_path %> -
  <%= link_to 'Landing', 		landing_path %> -
  <%= link_to 'Posts', 			posts_path %>
-  <p>
+<p>
 <%= render 'devise/menu/profile' %>
 <%= render 'devise/menu/registration_items' %> -
- <%= render 'devise/menu/login_items' %> -
- <%= render 'devise/menu/status' %>
+ <%= render 'devise/menu/login_items' %>
+<p>
+<%= render 'devise/menu/status' %>
+<br>
+<%= render 'devise/menu/behavior' %>
+
  
+
+
 <% unless current_user.nil? %>
 	<% if current_user.admin? %>
 		 <p>ADMIN: <%= link_to 'NEW POST', 	new_post_path %>
