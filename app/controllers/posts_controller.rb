@@ -28,8 +28,13 @@ class PostsController < ApplicationController
       redirect_to root_path      
     else
       @post = current_user.posts.build(params[:post])
-      @post.save
-      redirect_to @post
+      if @post.save
+        flash[:success] = "Post Created"
+        redirect_to @post
+      else
+        flash[:error] = "Post is invalid"
+        render 'new'
+      end
     end
   end
   
@@ -48,8 +53,13 @@ class PostsController < ApplicationController
       redirect_to root_path      
     else
       @post = Post.find_by_id(params[:id])
-      @post.update_attributes(params[:post])
-      redirect_to @post
+      if @post.update_attributes(params[:post])
+        flash[:success] = "Post updated"
+        redirect_to @post
+      else
+        flash[:error] = "Post is invalid"
+        render 'edit'
+      end
     end
   end
   

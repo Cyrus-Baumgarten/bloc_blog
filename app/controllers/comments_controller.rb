@@ -9,8 +9,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(params[:comment])    
     @comment.user = current_user
-    @comment.save
-    redirect_to :back
+    if @comment.save
+      flash[:success] = "Comment submitted"
+      redirect_to @post
+    else
+      flash[:error] = "Comment is invalid"
+      redirect_to @post
+    end
   end
   
   def edit
@@ -27,8 +32,13 @@ class CommentsController < ApplicationController
       flash[:error] = "You are not authorized to do that"
       redirect_to root_path     
     else
-      @comment.update_attributes(params[:comment])
-      redirect_to @post
+      if @comment.update_attributes(params[:comment])
+        flash[:success] = "Comment Updated"
+        redirect_to @post
+      else
+        flash.now[:error] = "Edit failed"
+        render 'edit'
+      end
     end
   end
   
