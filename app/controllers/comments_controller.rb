@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_filter :set_current_post
   before_filter :authenticate_user!, only: [:create]
   
   
@@ -7,6 +6,7 @@ class CommentsController < ApplicationController
   end
   
   def create
+    @post = Post.find(params[:comment][:post_id])
     @comment = @post.comments.build(params[:comment])    
     @comment.user = current_user
     if @comment.save
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     else
       if @comment.update_attributes(params[:comment])
         flash[:success] = "Comment Updated"
-        redirect_to @post
+        redirect_to @comment.post
       else
         flash.now[:error] = "Edit failed"
         render 'edit'
