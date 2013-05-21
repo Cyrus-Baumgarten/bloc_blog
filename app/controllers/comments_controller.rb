@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = @post.comments.create(params[:comment])    
+    @comment = @post.comments.build(params[:comment])    
     @comment.user = current_user
     @comment.save
     redirect_to :back

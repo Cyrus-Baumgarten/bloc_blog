@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     session[:post] = params[:id]
     @comments = @post.comments.all
-    @comment = @post.comments.create
+    @comment = @post.comments.build
   end
   
   def new
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       flash[:error] = "You are not authorized to do that"
       redirect_to root_path
     else
-      @post = current_user.posts.create
+      @post = current_user.posts.build
     end
   end
   
@@ -27,7 +27,8 @@ class PostsController < ApplicationController
       flash[:error] = "You are not authorized to do that"
       redirect_to root_path      
     else
-      @post = current_user.posts.create(params[:post])
+      @post = current_user.posts.build(params[:post])
+      @post.save
       redirect_to @post
     end
   end
