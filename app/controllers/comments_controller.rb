@@ -15,18 +15,17 @@ class CommentsController < ApplicationController
   
   def edit
     @comment = Comment.find_by_id(params[:id])
-    unless current_user == @comment.user
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
-      return
+    unless current_user == @comment.user or current_user.admin?
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path      
     end
   end
   
   def update
     @comment = Comment.find_by_id(params[:id])
-    unless current_user == @comment.user
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+    unless current_user == @comment.user or current_user.admin?
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path     
     else
       @comment.update_attributes(params[:comment])
       redirect_to @post
@@ -36,8 +35,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by_id(params[:id])
     unless current_user == @comment.user or current_user.admin?
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path     
     else
       @comment.destroy
       redirect_to :back

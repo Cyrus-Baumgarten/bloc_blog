@@ -15,8 +15,8 @@ class PostsController < ApplicationController
   
   def new
     unless current_user.admin?
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path
     else
       @post = current_user.posts.create
     end
@@ -24,8 +24,8 @@ class PostsController < ApplicationController
   
   def create
     unless current_user.admin?
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path      
     else
       @post = current_user.posts.create(params[:post])
       redirect_to @post
@@ -34,8 +34,8 @@ class PostsController < ApplicationController
   
   def edit
     unless current_user.admin?
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path      
     else
       @post = Post.find_by_id(params[:id])
     end
@@ -43,8 +43,8 @@ class PostsController < ApplicationController
   
   def update
     unless current_user.admin?
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path      
     else
       @post = Post.find_by_id(params[:id])
       @post.update_attributes(params[:post])
@@ -54,8 +54,8 @@ class PostsController < ApplicationController
   
   def destroy
     unless current_user.admin?
-      redirect_to :back
-      flash[:authorized] = "You are not authorized to do that"
+      flash[:error] = "You are not authorized to do that"
+      redirect_to root_path      
     else
       Post.find_by_id(params[:id]).destroy
       redirect_to posts_path
