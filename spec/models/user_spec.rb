@@ -11,7 +11,7 @@ describe User do
       end
       subject { @user }
       it { should_not be_valid }
-  end #"New user without correct sign up should be invalid"
+  end # New user without correct sign up should be invalid
   
   
   describe "User with email and password..." do
@@ -23,9 +23,10 @@ describe User do
         remember_me: true,
         anonymous: false,
         image_url: "www.image.com",
-        subscribe: false )
+        subscribe: true )
       end
-    #cont "User with email and password..."
+      
+    #cont User with email and password...
     describe "...should be valid, and should respond to all attributes" do
       subject { @user }
       it { should be_valid }
@@ -43,9 +44,26 @@ describe User do
       it { should respond_to(:image_url) }
       it { should respond_to(:created_at) }
       it { should respond_to(:updated_at) }
-    end #"...should be valid, and should respond to all attributes"
+      it { should respond_to(:posts) }
+      it { should respond_to(:comments) }
+    end #...should be valid, and should respond to all attributes
     
-    #cont "User with email and password..."
+# =>  #cont User with email and password...
+#     describe "...should recieve an email when a post is made" do
+#       before do
+#         @post = Post.create(
+#         title:"rspec test post",
+#         body:"rspec test post")
+#         # Active ActionMailer for tests
+#         ActionMailer::Base.delivery_method = :test
+#         ActionMailer::Base.perform_deliveries = true
+#         ActionMailer::Base.deliveries = []
+#       end
+#       subject { ActionMailer::Base.deliveries }
+#       its(:size) { should == 1 }
+# =>   end #...should recieve an email when a post is made
+    
+    #cont User with email and password...
     describe "...should be able to make posts" do
       before do
         @post = @user.posts.create(
@@ -55,10 +73,10 @@ describe User do
       subject { @post }
       it { should be_valid }
       its(:user) { should == @user }
-    end #"...should be able to make posts"
+    end #...should be able to make posts
     
-    #cont "User with email and password..."
-    describe "...should be able to comment on posts" do
+    #cont User with email and password...
+    describe "...should be able to comment on posts..." do
       before do
         @post = @user.posts.create(
         title:"rspec test post",
@@ -73,10 +91,17 @@ describe User do
       end
       subject { @comment }
       it { should be_valid }
-      its(:user) { should == @commenter }
-      its(:post) { should == @post }
-    end #"...should be able to comment on posts"
+      
+      #cont User with email and password...
+      #cont...should be able to comment on posts
+      describe "...comments should be related to posts and users" do
+        subject { @comment }
+        its(:user) { should == @commenter }
+        its(:post) { should == @post }
+      end #...comments should be related to posts and users
+        
+    end #...should be able to comment on posts
     
-  end #"User with email and password..."
+  end #User with email and password...
 
 end #"User"
