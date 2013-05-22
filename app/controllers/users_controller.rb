@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       current_user.update_attributes(anonymous: false)
       flash[:success] = "Your comments are now credited to your username"
       redirect_to :back
-    elsif current_user.name.empty?
+    elsif current_user.name? == false
       current_user.update_attributes(anonymous: false)
       flash[:error] = "You need a user name if you want your comments to be credited"
       redirect_to edit_user_path(current_user)

@@ -1,6 +1,6 @@
 <% unless current_user.nil? %>
  You are currently commenting as: 
- <% if current_user.anonymous? or current_user.name.empty? %>
+ <% if current_user.anonymous? or current_user.name? == false %>
  Anonymous  - <%= link_to "(switch to credited)", toggle_path  %>
  <% else %>
  <%= link_to current_user.name, user_path(current_user) %> - 
