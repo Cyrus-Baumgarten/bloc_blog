@@ -48,8 +48,9 @@ class CommentsController < ApplicationController
       flash[:error] = "You are not authorized to do that"
       redirect_to root_path     
     else
+      @post = @comment.post
       @comment.destroy
-      redirect_to :back
+      redirect_to @post
     end
   end
 end
