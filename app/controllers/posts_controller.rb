@@ -36,11 +36,9 @@ class PostsController < ApplicationController
             PostMailer.post_subscribe(user, @post).deliver
           end
         end
-        
-        
         redirect_to @post
       else
-        flash[:error] = "Post is invalid"
+        flash.now[:error] = "Post is invalid"
         render 'new'
       end
     end
@@ -65,7 +63,7 @@ class PostsController < ApplicationController
         flash[:success] = "Post updated"
         redirect_to @post
       else
-        flash[:error] = "Post is invalid"
+        flash.now[:error] = "Post is invalid"
         render 'edit'
       end
     end

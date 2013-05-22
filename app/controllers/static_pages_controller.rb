@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    @post = Post.last
+    @post = Post.first
   end
 
   def about
