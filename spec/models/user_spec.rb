@@ -14,7 +14,7 @@ describe User do
   end # New user without correct sign up should be invalid
   
   
-  describe "User with email and password..." do
+  describe "User with email and password" do
     before do
       @user = User.create(
         email: "tester@test.com",
@@ -48,20 +48,29 @@ describe User do
       it { should respond_to(:comments) }
     end #...should be valid, and should respond to all attributes
     
-# =>  #cont User with email and password...
+    # #cont User with email and password...
 #     describe "...should recieve an email when a post is made" do
 #       before do
-#         @post = Post.create(
-#         title:"rspec test post",
-#         body:"rspec test post")
 #         # Active ActionMailer for tests
 #         ActionMailer::Base.delivery_method = :test
 #         ActionMailer::Base.perform_deliveries = true
 #         ActionMailer::Base.deliveries = []
+#         @mailer = User.create(
+#           email: "mailer@test.com",
+#           password: "password",
+#           password_confirmation: "password",
+#           remember_me: true,
+#           anonymous: false,
+#           image_url: "www.image.com",
+#           subscribe: true )
+#         @post = @user.posts.new(
+#         title:"rspec test post",
+#         body:"rspec test post")
+#         @post.save
 #       end
 #       subject { ActionMailer::Base.deliveries }
-#       its(:size) { should == 1 }
-# =>   end #...should recieve an email when a post is made
+#       its(:size) { should == 2 }
+#      end #...should recieve an email when a post is made
     
     #cont User with email and password...
     describe "...should be able to make posts" do
@@ -76,7 +85,7 @@ describe User do
     end #...should be able to make posts
     
     #cont User with email and password...
-    describe "...should be able to comment on posts..." do
+    describe "...should be able to comment on posts" do
       before do
         @post = @user.posts.create(
         title:"rspec test post",
