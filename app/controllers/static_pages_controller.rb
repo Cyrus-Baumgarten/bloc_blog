@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    @post = Post.first unless Post.empty?
+    @post = Post.first
   end
 
   def about

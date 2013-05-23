@@ -1,4 +1,4 @@
-<% if @user.anonymous? or @user.name.empty? %>
+<% if @user.anonymous? or current_user.name? == false %>
 
 <p>This user has chosen to keep his profile private
 

@@ -17,12 +17,7 @@ describe "Pages" do
     end
   end
   
-  describe "user should be able to sign out" do
-    before do
-      click_link('Logout')
-    end
-  
-  end
-
 end
+
+
 
