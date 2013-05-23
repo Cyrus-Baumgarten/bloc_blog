@@ -30,12 +30,6 @@ class PostsController < ApplicationController
       @post = current_user.posts.build(params[:post])
       if @post.save
         flash[:success] = "Post Created"
-        #sends email to subscribers
-        User.all.each do |user|
-          if user.subscribe?
-            PostMailer.post_subscribe(user, @post).deliver
-          end
-        end
         redirect_to @post
       else
         flash.now[:error] = "Post is invalid"
